@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Success</title>
+</head>
+<body>
+    <div id="orderSuccess"></div>
+
+    <script>
+        // 取得 Query 參數的值
+        const queryString = window.location.search;
+        const urlParams = new URLSearchParams(queryString);
+        const query = urlParams.get('orderId');
+
+        // 檢查 Query 是否存在並且不為空
+        if (query) {
+            // 創建要顯示的訊息
+            const message = `Order [${query}] Success`;
+
+            // 在 HTML 中顯示訊息
+            const orderSuccessDiv = document.getElementById('orderSuccess');
+            orderSuccessDiv.innerText = message;
+        } else {
+            // 如果 Query 不存在或為空，顯示預設訊息
+            const defaultMessage = 'Order Success';
+            const orderSuccessDiv = document.getElementById('orderSuccess');
+            orderSuccessDiv.innerText = defaultMessage;
+        }
+    </script>
+</body>
+</html>
